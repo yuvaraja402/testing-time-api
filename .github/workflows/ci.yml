@@ -18,8 +18,29 @@ jobs:
       with:
         python-version: 3.11
     
+    - name: Upgrade Pip
+      run: pip install --upgrade pip
+
     - name: Install dependencies
       run: pip install -r requirements.txt
 
     - name: Compile code
       run: python main.py --compile
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Python version check
+      run: python3 -V
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.11
+        
+    - name: Compile code
+      run: python test.py --compile
