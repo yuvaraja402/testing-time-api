@@ -9,6 +9,10 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+    
+    - name: Python version check
+      run: python3 -V
+      run: python -V
 
     - name: Compile code
       run: python main.py --compile
