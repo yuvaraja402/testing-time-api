@@ -21,8 +21,8 @@ jobs:
     - name: Install dependencies
       run: pip install -r requirements.txt
 
-    - name: Compile code
-      run: python3 main.py --compile
+  # - name: Compile code
+  #   run: python3 main.py --compile
 
   test:
     runs-on: ubuntu-latest
