@@ -1,23 +1,14 @@
-import pytest
-from app import app
+# test.py
+from main import app
 
-@pytest.fixture
-def client():
-    app.config['TESTING'] = True
+def test_get_time():
     with app.test_client() as client:
-        yield client
+        response = client.get('/time')
+        assert response.status_code == 200
+        assert 'Time' in response.json
 
-def test_get_time(client):
-    response = client.get('/time')
-    assert response.status_code == 200
-    assert 'Time' in response.json
-
-def test_time_by_region(client):
-    response = client.get('/time/america')
-    assert response.status_code == 200
-    assert 'America' in response.json
-
-
-    # adding this for namesake
-    # adding this for namesake
-    # adding this for namesake
+def test_time_by_region():
+    with app.test_client() as client:
+        response = client.get('/time/America')
+        assert response.status_code == 200
+        assert 'America' in response.json
