@@ -9,3 +9,6 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+
+    - name: Compile code
+      run: python main.py --compile
