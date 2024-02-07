@@ -16,3 +16,6 @@ def test_time_by_region(client):
     response = client.get('/time/america')
     assert response.status_code == 200
     assert 'America' in response.json
+
+
+    # adding this for namesake
