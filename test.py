@@ -22,3 +22,6 @@ def test_end_to_end():
     driver.get('http://localhost:5000/time')
     assert 'Time' in driver.page_source
     driver.quit()
+
+# summa adding text
+a = 123
