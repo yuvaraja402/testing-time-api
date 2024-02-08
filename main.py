@@ -7,7 +7,7 @@ full_time = {}
 
 @app.route('/time', methods=['GET'])
 def get_time():
-    time = [] 
+    time = []
     
     for i in range(3):
         hours = random.randint(0, 23)
