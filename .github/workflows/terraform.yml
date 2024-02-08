@@ -1,4 +1,4 @@
-name: Terraform Deployment
+name: Terraform to Azure (CD)
 
 on:
   push:
@@ -11,10 +11,15 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
+
+    - name: Authenticating Azure to allow Terraform
+      run: az login --service-principal -u "1936dabf-4102-4051-857c-ae84a978b142" --tenant "b174724f-0430-44cc-893f-10943c2a8463"
 
     - name: Setup Terraform
-      uses: hashicorp/setup-terraform@v3
+      uses: hashicorp/setup-terraform@v1
+      with:
+        terraform_version: 3.0.0
 
     - name: Terraform Init
       run: terraform init
